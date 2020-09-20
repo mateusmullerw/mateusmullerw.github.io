@@ -1,0 +1,51 @@
+*,
+*:before,
+*:after {
+  font-family: 'Red Hat Display', sans-serif;
+  letter-spacing: 0.8px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $text-high;
+}
+body {
+  background-color: $background;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-color;
+}
+
+p{
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.33rem;;
+  color: $text-high;
+  margin: 0;
+}
+
+a{
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.165, 0.8, 0.4, 1);
+  margin: 0;
+}
+
+h1{
+  text-transform: uppercase;
+  display: block;
+  font-size: 3.375rem;
+  font-weight: 900;
+  color: $text-high;
+  margin: 0;
+}
+
+h2{
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: $text-high;
+  margin: 0;
+}

@@ -1,18 +1,45 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <div class="projects-container">
+      <Project
+        v-for="project in projects"
+        :key="project.slug"
+        :slug="project.slug"
+        :title="project.title"
+        :img="project.thumbnail"
+        :roles="project.roles"
+      />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import Vue from 'vue'
+import Project from '@/components/Project.vue'
 
 export default Vue.extend({
-  name: "Home",
+  name: 'Home',
+
+  data() {
+    return {
+      projects: require('@/assets/projects.json')
+    }
+  },
   components: {
-    HelloWorld
+    Project
   }
-});
+})
 </script>
+
+<style scoped lang="scss">
+@media screen and (min-width: 0px) {
+  .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 30vh 0;
+  }
+}
+</style>
