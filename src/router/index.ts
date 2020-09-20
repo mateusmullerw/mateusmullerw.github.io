@@ -5,6 +5,7 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
+  { path: '*', redirect: '/' },
   {
     meta: {
       title: 'Mateus Müller'
@@ -14,7 +15,7 @@ const routes: Array<RouteConfig> = [
     component: Home
   },
   {
-    path: '/project/:slug',
+    path: '/:slug',
     name: 'ProjectDetails',
     props: true,
     component: () => import('../views/ProjectDetails.vue')
@@ -22,9 +23,6 @@ const routes: Array<RouteConfig> = [
 ]
 
 const router = new VueRouter({
-  scrollBehavior() {
-    return { x: 0, y: 0 }
-  },
   mode: 'history',
   base: process.env.BASE_URL,
   routes

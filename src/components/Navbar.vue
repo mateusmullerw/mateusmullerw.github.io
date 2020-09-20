@@ -8,12 +8,17 @@
   >
     <div class="navbar__grid">
       <Navlink
-        v-for="link in Navbar"
-        :key="link.label"
-        :label="link.label"
-        :href="link.href"
-        :gridArea="link.gridArea"
-        :isLink="link.isLink"
+        :key="'Home'"
+        :label="isHome ? 'Mateus Müller' : 'Home'"
+        :href="'Home'"
+        :gridArea="'link1'"
+      />
+      <Navlink
+        :key="'Contact'"
+        :label="'Contact'"
+        :href="'mailto: mateusmullerw@gmail.com'"
+        :gridArea="'link4'"
+        :isLink="true"
       />
     </div>
   </div>
@@ -27,15 +32,17 @@ export default Vue.extend({
   components: {
     Navlink
   },
-  props: {
-    Navbar: Array
-  },
   data() {
     return {
       showNavbar: true,
       transparent: true,
       lastScrollPosition: 0,
       scrollOffset: 50
+    }
+  },
+  computed: {
+    isHome() {
+      return this.$route.name === 'Home'
     }
   },
   mounted() {
@@ -96,6 +103,14 @@ export default Vue.extend({
   }
 }
 @media screen and (min-width: $break-medium) {
+  .navbar {
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: 'link1 col link4';
+    }
+  }
+}
+@media screen and (min-width: $break-medium-large) {
   .navbar {
     &__grid {
       grid-template-columns: repeat(4, 1fr);

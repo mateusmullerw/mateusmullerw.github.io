@@ -50,6 +50,17 @@
       :src="getImage(image)"
       alt=""
     />
+    <div class="next-project">
+      <h3>Next</h3>
+      <router-link
+        :to="{ name: 'ProjectDetails', params: { slug: nextProject.slug } }"
+        class="next-project"
+      >
+        <h1 class="project-details__title">
+          {{ nextProject.title[0] }} <br />{{ nextProject.title[1] }}
+        </h1>
+      </router-link>
+    </div>
   </div>
 </template>
 <script>
@@ -69,6 +80,18 @@ export default {
   computed: {
     project() {
       return this.projects.find(project => project.slug === this.slug)
+    },
+    nextProject() {
+      const index =
+        this.projects.findIndex(project => project.slug === this.slug) + 1 ===
+        this.projects.length
+          ? 0
+          : this.projects.findIndex(project => project.slug === this.slug) + 1
+
+      return {
+        title: this.projects[index].title,
+        slug: this.projects[index].slug
+      }
     }
   },
   methods: {
@@ -78,6 +101,9 @@ export default {
     getImage(image) {
       return require(`@/assets/${this.slug}/${image}.png`)
     }
+  },
+  beforeMount() {
+    document.body.scrollTop = 0
   }
 }
 </script>
@@ -90,6 +116,9 @@ export default {
     align-items: center;
     margin-top: 20vh;
     &__title {
+      font-size: 2.5rem;
+      max-width: 100%;
+      overflow: hidden;
       align-self: flex-start;
       margin-bottom: 2rem;
     }
@@ -102,6 +131,7 @@ export default {
       justify-content: flex-start;
       align-items: center;
       margin-bottom: 3rem;
+      max-width: 100%;
       &__left {
         align-self: flex-start;
         width: 100%;
@@ -137,8 +167,8 @@ export default {
         margin-bottom: 0;
       }
       &__icon {
-        width: 28px;
-        height: 28px;
+        width: 1.75rem;
+        height: 1.75rem;
         margin-right: 0.3rem;
         margin-bottom: 0;
       }
@@ -149,9 +179,29 @@ export default {
       margin-bottom: 3rem;
     }
   }
+  .next-project {
+    text-decoration: none;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+
+    & h1 {
+      -webkit-text-stroke: 1px $text-medium;
+      color: transparent;
+      transition: all 0.4s cubic-bezier(0.165, 0.8, 0.4, 1);
+    }
+    & h3 {
+      -webkit-text-stroke: 1px $background;
+      text-align: left;
+      margin: 0;
+    }
+  }
 }
 @media screen and (min-width: $break-small) {
   .project-details {
+    &__title {
+      font-size: 3.375rem;
+    }
     &__about {
       &__right {
         justify-content: flex-start;
@@ -171,13 +221,16 @@ export default {
       }
       &__right {
         width: 100%;
-        // flex-direction: row;
-        // justify-content: flex-start;
       }
     }
     &__item {
       flex-basis: 33.33%;
       max-width: 33.33%;
+    }
+    .next-project:hover {
+      & h1 {
+        color: $text-high;
+      }
     }
   }
 }
@@ -202,19 +255,7 @@ export default {
 }
 @media screen and (min-width: $break-large) {
   .project-details {
-    margin: 16.66%;
-    &__title {
-      // margin-left: 16.66%;
-    // }
-    // &__about {
-    //   &__left {
-    //     width: 33.33%;
-    //     // margin: 0 16.66%;
-    //   }
-    //   &__right {
-    //     // width: 16.66%;
-      // }
-    }
+    margin: 0 16.66%;
   }
 }
 </style>

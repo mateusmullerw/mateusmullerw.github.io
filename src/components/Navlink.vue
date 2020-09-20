@@ -34,10 +34,9 @@ export default Vue.extend({
 .nav-link {
   width: unset;
   position: relative;
-  padding: 3px 3px;
+  padding: 0.188rem 0.188rem;
   color: white;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 1rem;
   align-self: end;
   z-index: 200;
   text-align: left;
@@ -45,14 +44,14 @@ export default Vue.extend({
   transition: all 0.4s cubic-bezier(0.165, 0.8, 0.4, 1);
 
   &:hover {
-    padding: 3px 10px;
+    padding: 0.188rem 0.625rem;
   }
   &::after {
     content: ' ';
     position: absolute;
     top: 0;
     left: 0;
-    width: 0px;
+    width: 0rem;
     height: 100%;
     background-color: white;
     transition: all 0.4s cubic-bezier(0.165, 0.8, 0.4, 1);
@@ -60,7 +59,7 @@ export default Vue.extend({
     z-index: 100;
   }
   &:hover:after {
-    padding: 3px 10px;
+    padding: 0.188rem 0.625rem;
     width: 100%;
   }
   &--email {
@@ -70,16 +69,16 @@ export default Vue.extend({
       position: absolute;
       top: 0%;
       left: 0;
-      width: 0px;
+      width: 0rem;
       height: 100%;
-      padding: 3px 0px;
+      padding: 0.188rem 0rem;
       color: black;
       mix-blend-mode: luminosity;
       overflow: hidden;
     }
     &:hover:after {
       width: 100%;
-      padding: 3px 10px;
+      padding: 0.188rem 0.625rem;
     }
   }
 }

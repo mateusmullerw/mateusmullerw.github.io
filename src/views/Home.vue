@@ -19,11 +19,13 @@ import Project from '@/components/Project.vue'
 
 export default Vue.extend({
   name: 'Home',
-
   data() {
     return {
       projects: require('@/assets/projects.json')
     }
+  },
+  beforeMount() {
+    document.body.scrollTop = 0
   },
   components: {
     Project

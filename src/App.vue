@@ -1,10 +1,10 @@
 <template>
   <div id="app" class="app">
-    <Navbar :key="'nav'" :Navbar="Navbar" />
+    <Navbar />
     <div class="container">
       <GridLines />
-      <transition name="fade" mode="out-in">
-        <router-view />
+      <transition :name="transitionName" :mode="'out-in'">
+        <router-view :key="$route.path" />
       </transition>
     </div>
   </div>
@@ -16,27 +16,24 @@ import Navbar from '@/components/Navbar.vue'
 
 export default Vue.extend({
   name: 'app',
-  data() {
-    return {
-      Navbar: [
-        {
-          label: 'Mateus Müller',
-          href: 'Home',
-          gridArea: 'link1',
-          isLink: false
-        },
-        {
-          label: 'Contato',
-          href: 'mailto: mateusmullerw@gmail.com',
-          gridArea: 'link4',
-          isLink: true
-        }
-      ]
-    }
-  },
   components: {
     GridLines,
     Navbar
+  },
+  data() {
+    return {
+      transitionName: 'fade',
+      transitionMode: 'out-in'
+    }
+  },
+  watch: {
+    $route(to, from) {
+      if (to.path === '/' || from.path === '/') {
+        this.transitionName = 'fade'
+      } else {
+        this.transitionName = 'slideup'
+      }
+    }
   }
 })
 </script>
@@ -85,10 +82,33 @@ export default Vue.extend({
   opacity: 0;
 }
 
-.fade-enter-active {
-  transition: opacity 0.3s cubic-bezier(0.5, 0.15, 0.2, 0.9);
-}
+.fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s cubic-bezier(0.165, 0.85, 0.45, 1);
+}
+
+.slideup-enter {
+  position: absolute;
+  transform: translateY(0.7%);
+  opacity: 0;
+}
+
+.slideup-leave-to {
+  position: fixed;
+  bottom: 0;
+  margin-right: $page-margin;
+  transform: translateY(-0.7%);
+  opacity: 0;
+}
+
+.slideup-enter-active {
+  transition-property: opacity, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.15, 0.4, 0.3, 1);
+}
+.slideup-leave-active {
+  transition-property: opacity, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.165, 0.85, 0.45, 1);
 }
 </style>

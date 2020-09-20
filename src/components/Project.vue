@@ -31,7 +31,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-@media screen and (min-width: 0px) {
+@media screen and (min-width: 0rem) {
   .project {
     display: flex;
     flex-direction: column-reverse;
@@ -56,9 +56,7 @@ export default Vue.extend({
       & h1 {
         text-align: left;
         text-transform: uppercase;
-        color: transparent;
-        color: $text-high;
-        font-size: 35px;
+        font-size: 2.188rem;
         font-weight: 900;
         margin: 0;
         transition: all 0.4s cubic-bezier(0.165, 0.85, 0.45, 1);
@@ -109,7 +107,7 @@ export default Vue.extend({
       & h1 {
         -webkit-text-stroke: 1px $text-high;
         color: transparent;
-        font-size: 44px;
+        font-size: 2.75rem;
         margin: 0;
         max-width: 100%;
       }
@@ -128,7 +126,7 @@ export default Vue.extend({
     }
     & p {
       display: block;
-      font-size: 14px;
+      font-size: 0.875rem;
       font-weight: 400;
       opacity: 0;
       color: $text-medium;
@@ -140,7 +138,7 @@ export default Vue.extend({
     padding: 0 16.666%;
     &__title {
       & h1 {
-        font-size: 54px;
+        font-size: 3.375rem;
       }
     }
   }
