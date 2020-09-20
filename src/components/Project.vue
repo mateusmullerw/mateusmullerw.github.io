@@ -1,5 +1,8 @@
 <template>
-  <router-link :to="{ name: 'ProjectDetails', params: { slug: slug } }" class="project">
+  <router-link
+    :to="{ name: 'ProjectDetails', params: { slug: slug } }"
+    class="project"
+  >
     <div class="project__title">
       <h1>{{ title[0] }} <br />{{ title[1] }}</h1>
     </div>
@@ -37,23 +40,6 @@ export default Vue.extend({
     text-decoration: none;
     &:not(:last-child) {
       margin-bottom: 8rem;
-    }
-
-    &:hover .project__title {
-      transform: scale(1.1);
-      & h1 {
-        color: $text-high;
-      }
-    }
-    &:hover .project__image img {
-      opacity: 1;
-      animation-duration: 0.4s;
-      animation-name: showImage;
-      animation-iteration-count: 1;
-      clip-path: polygon(0% 0%, 100% 00%, 100% 100%, 0 100%);
-    }
-    &:hover .project__image p {
-      opacity: 1;
     }
 
     &__title {
@@ -100,6 +86,22 @@ export default Vue.extend({
   .project {
     flex-direction: row;
     margin-bottom: 0rem;
+    &:hover .project__title {
+      transform: scale(1.1);
+      & h1 {
+        color: $text-high;
+      }
+    }
+    &:hover .project__image img {
+      opacity: 1;
+      animation-duration: 0.4s;
+      animation-name: showImage;
+      animation-iteration-count: 1;
+      clip-path: polygon(0% 0%, 100% 00%, 100% 100%, 0 100%);
+    }
+    &:hover .project__image p {
+      opacity: 1;
+    }
     &__title {
       width: 50%;
       max-width: 50%;

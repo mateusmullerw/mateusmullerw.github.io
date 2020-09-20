@@ -3,8 +3,8 @@
     "slug": "inova-moda-digital",
     "title": ["Inova", "Moda Digital"],
     "about": [
-      "Inova Moda Digital is an insights platform that documents new consumer behavior and key industry trends to give fashion professionals and business the confidence to make informed decisions about the future.",
-      "The project was planned and designed by the client and we were responsible by the development. The platform design and structure went through many iterations until the project was delivered, requiring the team to re-style components and pages as the project advanced."
+      "Inova Moda Digital is an insights platform that documents new consumer behavior and key industry trends to give fashion professionals and businesses the confidence to make informed decisions about the future.",
+      "The project was planned and designed by the client and we were responsible for the development. The platform design and structure went through many iterations until the project was delivered, requiring the team to restyle components and pages as the project advanced."
     ],
     "thumbnail": "inova-moda.png",
     "roles": ["Front-end developer"],
@@ -16,9 +16,9 @@
     "slug": "nowee",
     "title": ["Nowee"],
     "about": [
-      "Nowee is a online english class platform that offers high quality content for a low price. The challenge was to automate the whole process that was being done manually. ",
-      "We had a very short deadline to deliver the platform design, so after a briefing with the client we started designing the platform by doing multiple iterations of research and hand drawn wireframes. Then these wireframes were constructed in Figma as a high fidelity prototype.",
-      "After the design was approved by the client we moved on to the development process. The project was done with React and JSS. I contributed as a developer creating components and pages in the logged in area of the platform."
+      "Nowee is an online English class platform that offers high-quality content for a low price. The challenge was to automate the whole process that was being done manually.",
+      "We had a very short deadline to deliver the platform design, so after a briefing with the client we started designing the platform by doing multiple iterations of research and hand-drawn wireframes. Then these wireframes were constructed in Figma as a high-fidelity prototype.",
+      "After the design was approved by the client we moved on to the development process. The project was done with React and JSS. I contributed as a developer creating components and pages in the logged-in area of the platform."
     ],
     "thumbnail": "nowee.png",
     "roles": ["UX and UI Designer", "Front-end developer"],
@@ -30,9 +30,9 @@
     "slug": "findes",
     "title": ["FINDES", "e-commerce"],
     "about": [
-      "FINDES is the Industry Federation of Espírito Santo, an organization formed by seven entities that work together to develop the Espírito Santo state industry. The challenge was to create a e-commerce that would simplify the course enrollment to professionals and students, making it easier to find a course of interest, enroll and pay.",
-      "The client was creating a e-commerce for SENAI and SESI, both projects would be the same except a few differences in style. The client required two phototypes so they could validate everything before it went into development.",
-      "After the design basics of the store front were defined, we started developing the project, starting by what was already defined. As the client worked on the project and defined the business rules, more screens were created in the prototype followed by the development. This project is still in development process."
+      "FINDES is the Industry Federation of Espírito Santo, an organization formed by seven entities that work together to develop the Espírito Santo state industry. The challenge was to create an e-commerce that would simplify the course enrollment for professionals and students, making it easier to find a course of interest, enroll and pay.",
+      "The client was creating an e-commerce for SENAI and SESI, both projects would be the same except for a few differences in style. The client required two prototypes so they could validate everything before it went into development.",
+      "After the design basics of the storefront were defined, we started developing the project. As the client worked on the project and defined more business rules, more screens were created in the prototype followed by the development. This project is still in development. process"
     ],
     "thumbnail": "findes.png",
     "roles": ["UX and UI Designer", "Front-end developer"],
@@ -43,8 +43,8 @@
     "slug": "portal-rh",
     "title": ["YALO", "Portal RH"],
     "about": [
-      "Yalo Portal RH is a Human Resources administration platform for the Yalo health benefit club. The user flows and business rules were defined by the client. Our challenge consisted of designing and developing this platform that would allow their business clients complete control of benefited employes, card recharges, payment history and more.",
-      "Because the design process started with only a few functionalities defined, we didn't have a full view of what the final product would be. Beyond that, the client required weekly deliverables of high fidelity screen in the prototype, to follow and validate the project development. Having these constraints, we would quickly wireframe the required screens on paper before building the final design in Figma.",
+      "Yalo Portal RH is a Human Resources administration platform for the Yalo health benefit club. The user flows and business rules were defined by the client. Our challenge consisted in designing and developing this platform that would allow their business clients complete control of benefited employees, card recharges, payment history and more.",
+      "Because the design process started with only a few defined functionalities, we didn't have a full view of what the final product would be. Furthermore, the client required weekly deliverables of high-fidelity screens, to follow and validate the project development. Having these constraints, we would quickly wireframe the required screens on paper before building the final design in Figma.",
       "After a few months, the project was more defined and we identified an opportunity to review the whole interface to properly organize and structure the functionalities."
     ],
     "thumbnail": "portal-rh.png",
@@ -56,9 +56,9 @@
     "slug": "meu-yalo",
     "title": ["Meu YALO"],
     "about": [
-      "Meu Yalo is the web platform and app for the end consumer of Yalo's benefits club. Our challenge consisted of designing a platform and app that would allow their consumer clients to have control of their signed plans, reducing the need for them to contact customer service.",
-      "Yalo already had a user platform with some basic features. This gave us a starting point to define the information and functionalities that Yalo's clients would mostly need. After having the product necessities defined, we started style research and sketching the wireframes on paper. This gave us the agility to go through many iterations of the interface very quickly. ",
-      "We moved forward to designing high fidelity screens, defining all the styles in the prototype using Figma. We created prototypes both for the web platform and the app. As a way to deliver higher end product, we decided to export the app prototype to Proto.pie and animate the transitions."
+      "Meu Yalo is the web platform and app for the end consumer of Yalo's benefits club. Our challenge consisted in designing a platform and app that would allow their consumer clients to have control of their subscription, reducing the need for them to contact customer service.",
+      "Yalo already had a user platform with some basic features. This gave us a starting point to define the information and functionalities that Yalo's clients would need the most. After having the product necessities defined, we started style research and sketching the wireframes on paper. This gave us the agility to go through many iterations of the interface very quickly.",
+      "We moved forward to designing high fidelity screens, defining all the styles in the prototype using Figma. We created prototypes both for the web platform and the app. So as to deliver a higher-end product, we decided to export the app prototype to Proto.pie and animate the transitions."
     ],
     "thumbnail": "meu-yalo.png",
     "roles": ["UX and UI Designer"],

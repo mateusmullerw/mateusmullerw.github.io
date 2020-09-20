@@ -3,7 +3,7 @@
     class="navbar"
     :class="{
       'navbar--hidden': !showNavbar,
-      'navbar--transparent': !transparent
+      'navbar--transparent': transparent
     }"
   >
     <div class="navbar__grid">
@@ -59,7 +59,7 @@ export default Vue.extend({
         return
       }
       this.showNavbar = window.pageYOffset < this.lastScrollPosition
-      this.transparent = window.pageYOffset > this.scrollOffset
+      this.transparent = window.pageYOffset < this.scrollOffset
       this.lastScrollPosition = window.pageYOffset
     }
   }

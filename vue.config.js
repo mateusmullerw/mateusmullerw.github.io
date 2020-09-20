@@ -2,7 +2,7 @@
 // const path = require('path')
 
 module.exports = {
-  // options...
+  publicPath: '/',
   css: {
     loaderOptions: {
       sass: {

@@ -1,34 +1,33 @@
-import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
+import Vue from 'vue'
+import VueRouter, { RouteConfig } from 'vue-router'
+import Home from '../views/Home.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
     meta: {
       title: 'Mateus Müller'
     },
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: Home
   },
   {
-    path: "/project/:slug",
-    name: "ProjectDetails",
+    path: '/project/:slug',
+    name: 'ProjectDetails',
     props: true,
-    component: () =>
-      import("../views/ProjectDetails.vue")
+    component: () => import('../views/ProjectDetails.vue')
   }
-];
+]
 
 const router = new VueRouter({
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior() {
     return { x: 0, y: 0 }
   },
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
   routes
-});
+})
 
-export default router;
+export default router
