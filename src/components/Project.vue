@@ -1,13 +1,24 @@
 <template>
   <router-link
+    class="project-router"
     :to="{ name: 'ProjectDetails', params: { slug: slug } }"
-    class="project"
   >
-    <div class="project__title">
-      <h1>{{ title[0] }} <br />{{ title[1] }}</h1>
-    </div>
-    <div class="project__image">
-      <img :src="image" alt="" />
+    <div class="project" :ref="slug">
+      <div
+        class="project__title"
+        :class="{ 'project__title--active': active }"
+        :ref="'title-' + slug"
+      >
+        <h1 class="project__title__h1">{{ title[0] }} <br />{{ title[1] }}</h1>
+      </div>
+      <div class="project__image" :ref="'image-' + slug">
+        <img
+          class="project__image__img"
+          :class="{ 'project__image__img--active': active }"
+          :src="image"
+          alt=""
+        />
+      </div>
     </div>
   </router-link>
 </template>
@@ -16,6 +27,11 @@
 import Vue from 'vue'
 export default Vue.extend({
   name: 'project',
+  data() {
+    return {
+      active: false
+    }
+  },
   props: {
     slug: String,
     title: Array,
@@ -26,21 +42,59 @@ export default Vue.extend({
     image() {
       return require(`@/assets/thumbnail/${this.img}`)
     }
+  },
+  created() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  mounted() {
+    this.handleScroll()
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll() {
+      const height = this.$refs[this.slug].getBoundingClientRect().height
+      const spacing =
+        8 * parseFloat(getComputedStyle(document.documentElement).fontSize)
+      const limitTop = window.innerHeight * 0.05
+      const limitBottom = limitTop + spacing + height
+      const position = this.$refs[this.slug].getBoundingClientRect().top
+
+      position > limitTop && position < limitBottom
+        ? (this.active = true)
+        : (this.active = false)
+
+      let opacity = 1
+      if (position <= window.innerHeight / 3 && !this.active) {
+        opacity = (1.5 * (position + height)) / window.innerHeight
+      } else if (position >= window.innerHeight / 1.5 && !this.active) {
+        opacity = (1.5 * window.innerHeight) / position - 1.5
+      } else {
+        opacity = 1
+      }
+      this.$refs[this.slug].style.opacity = opacity
+    }
   }
 })
 </script>
 
 <style scoped lang="scss">
 @media screen and (min-width: 0rem) {
+  .project-router {
+    display: flex;
+    max-width: 100%;
+    z-index: 100;
+    text-decoration: none;
+    overflow: hidden;
+    &:not(:last-child) {
+      margin-bottom: 8rem;
+    }
+  }
   .project {
     display: flex;
     flex-direction: column-reverse;
     max-width: 100%;
-    z-index: 100;
-    text-decoration: none;
-    &:not(:last-child) {
-      margin-bottom: 8rem;
-    }
 
     &__title {
       display: flex;
@@ -52,10 +106,17 @@ export default Vue.extend({
       transition: all 0.4s cubic-bezier(0.165, 0.85, 0.45, 1);
       transform-origin: center left;
       mix-blend-mode: exclusion;
-
-      & h1 {
+      &--active {
+        transform: scale(1.1);
+        & h1 {
+          color: $text-high;
+        }
+      }
+      &__h1 {
         text-align: left;
         text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1px $text-high;
         font-size: 2.188rem;
         font-weight: 900;
         margin: 0;
@@ -71,12 +132,10 @@ export default Vue.extend({
     flex-grow: 1;
     margin-bottom: 0.5rem;
 
-    & img {
+    &__img {
       width: 100%;
       object-fit: contain;
-    }
-    & p {
-      display: none;
+      transition: all 0.4s cubic-bezier(0.165, 0.85, 0.45, 1);
     }
   }
 }
@@ -84,27 +143,11 @@ export default Vue.extend({
   .project {
     flex-direction: row;
     margin-bottom: 0rem;
-    &:hover .project__title {
-      transform: scale(1.1);
-      & h1 {
-        color: $text-high;
-      }
-    }
-    &:hover .project__image img {
-      opacity: 1;
-      animation-duration: 0.4s;
-      animation-name: showImage;
-      animation-iteration-count: 1;
-      clip-path: polygon(0% 0%, 100% 00%, 100% 100%, 0 100%);
-    }
-    &:hover .project__image p {
-      opacity: 1;
-    }
     &__title {
       width: 50%;
       max-width: 50%;
 
-      & h1 {
+      &__h1 {
         -webkit-text-stroke: 1px $text-high;
         color: transparent;
         font-size: 2.75rem;
@@ -116,13 +159,20 @@ export default Vue.extend({
   .project__image {
     margin: 0;
     width: 50%;
-    & img {
+    &__img {
       clip-path: polygon(0% 0%, 00% 00%, 00% 100%, 0 100%);
       animation-duration: 0.3s;
       animation-name: hideImage;
       animation-iteration-count: 1;
       opacity: 0;
       transition: all 0.3s cubic-bezier(0.165, 0.85, 0.45, 1);
+      &--active {
+        opacity: 1;
+        animation-duration: 0.4s;
+        animation-name: showImage;
+        animation-iteration-count: 1;
+        clip-path: polygon(0% 0%, 100% 00%, 100% 100%, 0 100%);
+      }
     }
     & p {
       display: block;
@@ -137,7 +187,7 @@ export default Vue.extend({
   .project {
     padding: 0 16.666%;
     &__title {
-      & h1 {
+      &__h1 {
         font-size: 3.375rem;
       }
     }
