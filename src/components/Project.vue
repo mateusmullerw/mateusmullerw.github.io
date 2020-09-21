@@ -4,14 +4,10 @@
     :to="{ name: 'ProjectDetails', params: { slug: slug } }"
   >
     <div class="project" :ref="slug">
-      <div
-        class="project__title"
-        :class="{ 'project__title--active': active }"
-        :ref="'title-' + slug"
-      >
+      <div class="project__title" :class="{ 'project__title--active': active }">
         <h1 class="project__title__h1">{{ title[0] }} <br />{{ title[1] }}</h1>
       </div>
-      <div class="project__image" :ref="'image-' + slug">
+      <div class="project__image">
         <img
           class="project__image__img"
           :class="{ 'project__image__img--active': active }"
@@ -27,7 +23,7 @@
 import Vue from 'vue'
 export default Vue.extend({
   name: 'project',
-  data() {
+  data(this: Vue) {
     return {
       active: false
     }
@@ -53,13 +49,15 @@ export default Vue.extend({
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
-    handleScroll() {
-      const height = this.$refs[this.slug].getBoundingClientRect().height
+    handleScroll(this) {
+      console.log(this)
+      const project = this.$refs[this.slug] as HTMLElement
+      const height = project.getBoundingClientRect().height
       const spacing =
         8 * parseFloat(getComputedStyle(document.documentElement).fontSize)
       const limitTop = window.innerHeight * 0.05
       const limitBottom = limitTop + spacing + height
-      const position = this.$refs[this.slug].getBoundingClientRect().top
+      const position = project.getBoundingClientRect().top
 
       position > limitTop && position < limitBottom
         ? (this.active = true)
@@ -73,7 +71,7 @@ export default Vue.extend({
       } else {
         opacity = 1
       }
-      this.$refs[this.slug].style.opacity = opacity
+      project.style.opacity = opacity.toString()
     }
   }
 })
