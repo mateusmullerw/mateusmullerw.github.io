@@ -255,7 +255,7 @@ export default {
 }
 @media screen and (min-width: $break-large) {
   .project-details {
-    margin: 0 16.66%;
+    margin: 20vh 16.66% 0 16.66%;
   }
 }
 </style>
