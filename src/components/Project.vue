@@ -50,24 +50,24 @@ export default Vue.extend({
   },
   methods: {
     handleScroll(this) {
-      console.log(this)
       const project = this.$refs[this.slug] as HTMLElement
       const height = project.getBoundingClientRect().height
       const spacing =
         8 * parseFloat(getComputedStyle(document.documentElement).fontSize)
-      const limitTop = window.innerHeight * 0.05
+      const limitTop = 0
       const limitBottom = limitTop + spacing + height
-      const position = project.getBoundingClientRect().top
+      const projectTop = project.getBoundingClientRect().top
 
-      position > limitTop && position < limitBottom
+      projectTop >= limitTop && projectTop < limitBottom
         ? (this.active = true)
         : (this.active = false)
 
       let opacity = 1
-      if (position <= window.innerHeight / 3 && !this.active) {
-        opacity = (1.5 * (position + height)) / window.innerHeight
-      } else if (position >= window.innerHeight / 1.5 && !this.active) {
-        opacity = (1.5 * window.innerHeight) / position - 1.5
+      if (projectTop < limitTop && !this.active) {
+        opacity = 1 + projectTop / height
+      } else if (projectTop >= limitBottom && !this.active) {
+        opacity =
+          1 - (projectTop - limitBottom) / (window.innerHeight - limitBottom)
       } else {
         opacity = 1
       }
