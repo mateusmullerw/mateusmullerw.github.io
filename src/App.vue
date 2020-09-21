@@ -94,9 +94,6 @@ export default Vue.extend({
 }
 
 .slideup-leave-to {
-  position: fixed;
-  bottom: 0;
-  margin-right: $page-margin;
   transform: translateY(-0.7%);
   opacity: 0;
 }
