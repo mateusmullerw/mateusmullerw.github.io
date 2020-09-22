@@ -84,7 +84,7 @@ export default Vue.extend({
     max-width: 100%;
     z-index: 100;
     text-decoration: none;
-    overflow: hidden;
+    overflow: visible;
     &:not(:last-child) {
       margin-bottom: 8rem;
     }
@@ -141,6 +141,11 @@ export default Vue.extend({
   .project {
     flex-direction: row;
     margin-bottom: 0rem;
+    // &:hover {
+    //   .project__title__h1 {
+    //     background-color: orange;
+    //   }
+    // }
     &__title {
       width: 50%;
       max-width: 50%;
@@ -163,7 +168,7 @@ export default Vue.extend({
       animation-name: hideImage;
       animation-iteration-count: 1;
       opacity: 0;
-      transition: all 0.3s cubic-bezier(0.165, 0.85, 0.45, 1);
+      transition: all 0.4s cubic-bezier(0.165, 0.85, 0.45, 1);
       &--active {
         opacity: 1;
         animation-duration: 0.4s;
@@ -172,18 +177,13 @@ export default Vue.extend({
         clip-path: polygon(0% 0%, 100% 00%, 100% 100%, 0 100%);
       }
     }
-    & p {
-      display: block;
-      font-size: 0.875rem;
-      font-weight: 400;
-      opacity: 0;
-      color: $text-medium;
-    }
   }
 }
 @media screen and (min-width: $break-large) {
+  .project-router {
+    margin: 0 16.666%;
+  }
   .project {
-    padding: 0 16.666%;
     &__title {
       &__h1 {
         font-size: 3.375rem;

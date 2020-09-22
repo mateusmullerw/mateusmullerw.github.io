@@ -1,5 +1,5 @@
 <template>
-  <div class="project-details">
+  <div class="project-details" ref="project">
     <h1 class="project-details__title">
       {{ project.title[0] }} <br />{{ project.title[1] }}
     </h1>
@@ -54,9 +54,10 @@
       <h3>Next</h3>
       <router-link
         :to="{ name: 'ProjectDetails', params: { slug: nextProject.slug } }"
-        class="next-project"
+        class="next-project__link"
+        v-on:click="goToNext"
       >
-        <h1 class="project-details__title">
+        <h1 class="project-details__title" v-on:click="goToNext" ref="next">
           {{ nextProject.title[0] }} <br />{{ nextProject.title[1] }}
         </h1>
       </router-link>
@@ -100,6 +101,15 @@ export default {
     },
     getImage(image) {
       return require(`@/assets/${this.slug}/${image}.png`)
+    },
+    goToNext() {
+      const titleHeight = this.$refs.next.getBoundingClientRect().height
+      const scrollOffset =
+        document.body.scrollHeight - window.innerHeight - window.pageYOffset
+      this.$refs.project.style.transition =
+        'transform 0.7s cubic-bezier(0.3, 0, 0.2, 1)'
+      this.$refs.project.style.transform = `translateY(calc(${titleHeight -
+        scrollOffset}px + 2rem - 80vh)`
     }
   },
   beforeMount() {
@@ -121,6 +131,7 @@ export default {
       overflow: hidden;
       align-self: flex-start;
       margin-bottom: 2rem;
+      transition: color 0.3s cubic-bezier(0.165, 0.85, 0.45, 1);
     }
     &__paragraph {
       margin-bottom: 1rem;
@@ -180,20 +191,20 @@ export default {
     }
   }
   .next-project {
-    text-decoration: none;
-    width: 100%;
+    align-self: flex-start;
     max-width: 100%;
     overflow: hidden;
 
-    & h1 {
+    & .project-details__title {
       -webkit-text-stroke: 1px $text-medium;
       color: transparent;
-      transition: all 0.4s cubic-bezier(0.165, 0.8, 0.4, 1);
     }
     & h3 {
-      -webkit-text-stroke: 1px $background;
       text-align: left;
       margin: 0;
+    }
+    &__link {
+      text-decoration: none;
     }
   }
 }
@@ -228,7 +239,7 @@ export default {
       max-width: 33.33%;
     }
     .next-project:hover {
-      & h1 {
+      & .project-details__title {
         color: $text-high;
       }
     }

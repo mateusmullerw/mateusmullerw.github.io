@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="app">
     <Navbar />
+    <GridLines />
     <div class="container">
-      <GridLines />
       <transition :name="transitionName" :mode="'out-in'">
         <router-view :key="$route.path" />
       </transition>
@@ -55,13 +55,15 @@ export default Vue.extend({
 
 @keyframes showImage {
   0% {
-    opacity: 0.5;
+    opacity: 0;
     clip-path: polygon(0% 0%, 00% 00%, 00% 100%, 0 100%);
   }
   30% {
+    opacity: 0.2;
     clip-path: polygon(0% 0%, 20% 0%, 40% 100%, 0 100%);
   }
   100% {
+    opacity: 1;
     clip-path: polygon(0% 0%, 100% 00%, 100% 100%, 0 100%);
   }
 }
@@ -84,28 +86,37 @@ export default Vue.extend({
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s cubic-bezier(0.165, 0.85, 0.45, 1);
+  transition: opacity 0.4s cubic-bezier(0.165, 0.85, 0.45, 1);
 }
 
 .slideup-enter {
-  position: absolute;
-  transform: translateY(0.7%);
-  opacity: 0;
+  div,
+  img {
+    opacity: 0;
+  }
 }
 
 .slideup-leave-to {
-  transform: translateY(-0.7%);
-  opacity: 0;
+  * :not(:last-child),
+  img {
+    opacity: 0;
+  }
+  :last-child a .project-details__title {
+    color: $text-high;
+  }
 }
 
 .slideup-enter-active {
-  transition-property: opacity, transform;
-  transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0.15, 0.4, 0.3, 1);
+  transition: opacity 0.4s cubic-bezier(0.15, 0.4, 0.3, 1);
+  div,
+  img {
+    transition: opacity 0.4s cubic-bezier(0.15, 0.4, 0.3, 1);
+  }
 }
 .slideup-leave-active {
-  transition-property: opacity, transform;
-  transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0.165, 0.85, 0.45, 1);
+  * :not(:last-child),
+  img {
+    transition: opacity 0.4s cubic-bezier(0.165, 0.85, 0.45, 1);
+  }
 }
 </style>
