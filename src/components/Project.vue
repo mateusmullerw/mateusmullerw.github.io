@@ -93,7 +93,7 @@ export default Vue.extend({
     display: flex;
     flex-direction: column-reverse;
     max-width: 100%;
-
+    overflow: hidden;
     &__title {
       display: flex;
       align-items: center;
