@@ -2,21 +2,23 @@
   <div id="app" class="app">
     <Navbar />
     <GridLines />
-    <div class="container">
+    <Container>
       <transition :name="transitionName" :mode="'out-in'">
         <router-view :key="$route.path" />
       </transition>
-    </div>
+    </Container>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import Container from '@/components/Container.vue'
 import GridLines from '@/components/GridLines.vue'
 import Navbar from '@/components/Navbar.vue'
 
 export default Vue.extend({
   name: 'app',
   components: {
+    Container,
     GridLines,
     Navbar
   },
@@ -39,18 +41,28 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+@media screen and (min-width: 0rem) {
+  .app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    &__container {
+      position: relative;
+      width: 100%;
+      max-width: 1500px;
+      min-height: 100%;
+      margin: 0 $page-margin;
+    }
+  }
 }
-.container {
-  position: relative;
-  width: 100%;
-  max-width: 1500px;
-  min-height: 100%;
-  margin: 0 $page-margin;
+@media screen and (min-width: $break-medium) and (max-width: $break-large) {
+  .app {
+    &__container {
+      margin: 0 10%;
+    }
+  }
 }
 
 @keyframes showImage {

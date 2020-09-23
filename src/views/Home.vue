@@ -1,15 +1,13 @@
 <template>
   <div class="home">
-    <div class="projects-container">
-      <Project
-        v-for="project in projects"
-        :key="project.slug"
-        :slug="project.slug"
-        :title="project.title"
-        :img="project.thumbnail"
-        :roles="project.roles"
-      />
-    </div>
+    <Project
+      v-for="project in projects"
+      :key="project.slug"
+      :slug="project.slug"
+      :title="project.title"
+      :img="project.thumbnail"
+      :roles="project.roles"
+    />
   </div>
 </template>
 
@@ -36,12 +34,18 @@ export default Vue.extend({
 <style scoped lang="scss">
 @media screen and (min-width: 0px) {
   .home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     max-width: 100%;
+    min-width: 100%;
     padding: 30vh 0;
+  }
+}
+@media screen and (min-width: $break-large) {
+  .home {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 30vh 16.666%;
   }
 }
 </style>

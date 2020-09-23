@@ -80,11 +80,12 @@ export default Vue.extend({
 <style scoped lang="scss">
 @media screen and (min-width: 0rem) {
   .project-router {
-    display: flex;
+    display: block;
     max-width: 100%;
+    min-width: 100%;
     z-index: 100;
     text-decoration: none;
-    overflow: visible;
+    overflow: hidden;
     &:not(:last-child) {
       margin-bottom: 8rem;
     }
@@ -93,6 +94,7 @@ export default Vue.extend({
     display: flex;
     flex-direction: column-reverse;
     max-width: 100%;
+    min-width: 100%;
     overflow: hidden;
     &__title {
       display: flex;
@@ -128,6 +130,7 @@ export default Vue.extend({
     justify-content: center;
     flex-direction: column;
     flex-grow: 1;
+    min-width: 100%;
     margin-bottom: 0.5rem;
 
     &__img {
@@ -140,12 +143,6 @@ export default Vue.extend({
 @media screen and (min-width: $break-medium) {
   .project {
     flex-direction: row;
-    margin-bottom: 0rem;
-    // &:hover {
-    //   .project__title__h1 {
-    //     background-color: orange;
-    //   }
-    // }
     &__title {
       width: 50%;
       max-width: 50%;
@@ -162,6 +159,7 @@ export default Vue.extend({
   .project__image {
     margin: 0;
     width: 50%;
+    min-width: 50%;
     &__img {
       clip-path: polygon(0% 0%, 00% 00%, 00% 100%, 0 100%);
       animation-duration: 0.3s;
@@ -180,9 +178,6 @@ export default Vue.extend({
   }
 }
 @media screen and (min-width: $break-large) {
-  .project-router {
-    margin: 0 16.666%;
-  }
   .project {
     &__title {
       &__h1 {

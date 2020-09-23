@@ -1,22 +1,28 @@
 <template>
   <div class="grid-lines">
-    <div class="container">
-      <div class="line line--1"></div>
-      <div class="line line--2"></div>
-      <div class="line line--3"></div>
-      <div class="line line--4"></div>
-      <div class="line line--5"></div>
-      <div class="line line--6"></div>
-      <div class="line line--7"></div>
-    </div>
+    <Container>
+      <div class="grid-lines__flex">
+        <div class="line line--1"></div>
+        <div class="line line--2"></div>
+        <div class="line line--3"></div>
+        <div class="line line--4"></div>
+        <div class="line line--5"></div>
+        <div class="line line--6"></div>
+        <div class="line line--7"></div>
+      </div>
+    </Container>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import Container from '@/components/Container.vue'
 
 export default Vue.extend({
-  name: 'GridLines'
+  name: 'GridLines',
+  components: {
+    Container
+  }
 })
 </script>
 
@@ -26,24 +32,16 @@ export default Vue.extend({
     position: fixed;
     top: 0;
     left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    z-index: -1;
-  }
-  .container {
-    width: 100%;
-    max-width: 1500px;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 $page-margin;
-    overflow: visible;
+    &__flex {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
   }
   .line {
     height: 100%;
-    min-height: 100%;
+    min-height: 100vh;
     width: 1px;
     background-color: $line;
     &--1 {

@@ -6,30 +6,34 @@
       'navbar--transparent': transparent
     }"
   >
-    <div class="navbar__grid">
-      <Navlink
-        :key="'Home'"
-        :label="isHome ? 'Mateus Müller' : 'Home'"
-        :href="'Home'"
-        :gridArea="'link1'"
-      />
-      <Navlink
-        :key="'Contact'"
-        :label="'Contact'"
-        :href="'mailto: mateusmullerw@gmail.com'"
-        :gridArea="'link4'"
-        :isLink="true"
-      />
-    </div>
+    <Container>
+      <div class="navbar__grid">
+        <Navlink
+          :key="'Home'"
+          :label="isHome ? 'Mateus Müller' : 'Home'"
+          :href="'Home'"
+          :gridArea="'link1'"
+        />
+        <Navlink
+          :key="'Contact'"
+          :label="'Contact'"
+          :href="'mailto: mateusmullerw@gmail.com'"
+          :gridArea="'link4'"
+          :isLink="true"
+        />
+      </div>
+    </Container>
   </div>
 </template>
 
 <script scoped lang="ts">
 import Vue from 'vue'
+import Container from '@/components/Container.vue'
 import Navlink from '@/components/Navlink.vue'
 
 export default Vue.extend({
   components: {
+    Container,
     Navlink
   },
   data() {
@@ -78,13 +82,11 @@ export default Vue.extend({
   .navbar {
     position: fixed;
     top: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    left: 0px;
     width: 100%;
     z-index: 1000;
-    padding: 2rem $page-margin 2rem;
-    background-color: $background;
+    padding: 2rem 0;
+    background-color: $navbar;
     transition: all 0.4s cubic-bezier(0.165, 0.85, 0.45, 1);
 
     &--hidden {
@@ -98,7 +100,6 @@ export default Vue.extend({
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas: 'link1 link4';
       width: 100%;
-      max-width: 1500px;
     }
   }
 }
