@@ -1,77 +1,49 @@
 <template>
-  <router-link
-    class="project-router"
-    :to="{ name: 'ProjectDetails', params: { slug: slug } }"
-  >
-    <div class="project" :ref="slug">
-      <div class="project__title" :class="{ 'project__title--active': active }">
-        <h1 class="project__title__h1">{{ title[0] }} <br />{{ title[1] }}</h1>
-      </div>
-      <div class="project__image">
-        <img
-          class="project__image__img"
-          :class="{ 'project__image__img--active': active }"
-          :src="image"
-          alt=""
-        />
-      </div>
-    </div>
-  </router-link>
+  <form @submit.prevent="submitForm">
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" v-model="email" />
+    </label>
+    <label>
+      <span>Message</span>
+      <textarea name="message" v-model="message"></textarea>
+    </label>
+    <button type="submit">Submit</button>
+  </form>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  name: 'Project',
-  data(this: Vue) {
+  name: 'ContactForm',
+  data() {
     return {
-      active: false
+      email: '',
+      message: '',
+      endpoint: 'https://formspree.io/xvovodwa'
     }
-  },
-  props: {
-    slug: String,
-    title: Array,
-    img: String,
-    roles: Array
-  },
-  computed: {
-    image() {
-      return require(`@/assets/thumbnail/${this.img}`)
-    }
-  },
-  created() {
-    window.addEventListener('scroll', this.handleScroll)
-  },
-  mounted() {
-    this.handleScroll()
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
-    handleScroll(this) {
-      const project = this.$refs[this.slug] as HTMLElement
-      const height = project.getBoundingClientRect().height
-      const spacing =
-        8 * parseFloat(getComputedStyle(document.documentElement).fontSize)
-      const limitTop = 0
-      const limitBottom = limitTop + spacing + height
-      const projectTop = project.getBoundingClientRect().top
-
-      projectTop >= limitTop && projectTop < limitBottom
-        ? (this.active = true)
-        : (this.active = false)
-
-      let opacity = 1
-      if (projectTop < limitTop && !this.active) {
-        opacity = 1 + projectTop / height
-      } else if (projectTop >= limitBottom && !this.active) {
-        opacity =
-          1 - (projectTop - limitBottom) / (window.innerHeight - limitBottom)
-      } else {
-        opacity = 1
+    async submitForm() {
+      const data = {
+        email: this.email,
+        message: this.message
       }
-      project.style.opacity = opacity.toString()
+      await this.$http
+        .post(this.endpoint, data)
+        .then(response => {
+          this.email = ''
+          this.message = ''
+          console.log(response)
+          //i redirect my app to '/success' route once payload completed.
+          this.$router.push({ path: '/nowee' })
+        })
+        .catch(error => {
+          if (error.response) {
+            alert(error.response)
+            // => the response payload
+          }
+        })
     }
   }
 })

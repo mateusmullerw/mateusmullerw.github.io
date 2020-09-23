@@ -8,12 +8,14 @@
       :img="project.thumbnail"
       :roles="project.roles"
     />
+    <ContactForm />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Project from '@/components/Project.vue'
+import ContactForm from '@/components/ContactForm.vue'
 
 export default Vue.extend({
   name: 'Home',
@@ -26,7 +28,8 @@ export default Vue.extend({
     document.body.scrollTop = 0
   },
   components: {
-    Project
+    Project,
+    ContactForm
   }
 })
 </script>
