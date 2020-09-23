@@ -100,7 +100,7 @@ export default {
       return require(`@/assets/icon/${icon}`)
     },
     getImage(image) {
-      return require(`@/assets/${this.slug}/${image}.png`)
+      return require(`@/assets/${this.slug}/${image}.jpg`)
     },
     goToNext() {
       const titleHeight = this.$refs.next.getBoundingClientRect().height

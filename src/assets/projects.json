@@ -6,7 +6,7 @@
       "Inova Moda Digital is an insights platform that documents new consumer behavior and key industry trends to give fashion professionals and businesses the confidence to make informed decisions about the future.",
       "The project was planned and designed by the client and we were responsible for the development. The platform design and structure went through many iterations until the project was delivered, requiring the team to restyle components and pages as the project advanced."
     ],
-    "thumbnail": "inova-moda.png",
+    "thumbnail": "inova-moda.jpg",
     "roles": ["Front-end developer"],
     "technologies": [{ "label": "React", "icon": "react.png" }],
     "link": "inovamodadigital.com.br",
@@ -20,7 +20,7 @@
       "We had a very short deadline to deliver the platform design, so after a briefing with the client we started designing the platform by doing multiple iterations of research and hand-drawn wireframes. Then these wireframes were constructed in Figma as a high-fidelity prototype.",
       "After the design was approved by the client we moved on to the development process. The project was done with React and JSS. I contributed as a developer creating components and pages in the logged-in area of the platform."
     ],
-    "thumbnail": "nowee.png",
+    "thumbnail": "nowee.jpg",
     "roles": ["UX and UI Designer", "Front-end developer"],
     "technologies": [{ "label": "Figma", "icon": "figma.png" },{ "label": "React", "icon": "react.png" }],
     "link": "nowee.com.br",
@@ -34,7 +34,7 @@
       "The client was creating an e-commerce for SENAI and SESI, both projects would be the same except for a few differences in style. The client required two prototypes so they could validate everything before it went into development.",
       "After the design basics of the storefront were defined, we started developing the project. As the client worked on the project and defined more business rules, more screens were created in the prototype followed by the development. This project is still in development. process"
     ],
-    "thumbnail": "findes.png",
+    "thumbnail": "findes.jpg",
     "roles": ["UX and UI Designer", "Front-end developer"],
     "technologies": [{ "label": "Figma", "icon": "figma.png" },{ "label": "React", "icon": "react.png" }],
     "images": 7
@@ -47,7 +47,7 @@
       "Because the design process started with only a few defined functionalities, we didn't have a full view of what the final product would be. Furthermore, the client required weekly deliverables of high-fidelity screens, to follow and validate the project development. Having these constraints, we would quickly wireframe the required screens on paper before building the final design in Figma.",
       "After a few months, the project was more defined and we identified an opportunity to review the whole interface to properly organize and structure the functionalities."
     ],
-    "thumbnail": "portal-rh.png",
+    "thumbnail": "portal-rh.jpg",
     "roles": ["UX and UI Designer"],
     "technologies": [{ "label": "Figma", "icon": "figma.png" }],
     "images": 7
@@ -60,7 +60,7 @@
       "Yalo already had a user platform with some basic features. This gave us a starting point to define the information and functionalities that Yalo's clients would need the most. After having the product necessities defined, we started style research and sketching the wireframes on paper. This gave us the agility to go through many iterations of the interface very quickly.",
       "We moved forward to designing high fidelity screens, defining all the styles in the prototype using Figma. We created prototypes both for the web platform and the app. So as to deliver a higher-end product, we decided to export the app prototype to Proto.pie and animate the transitions."
     ],
-    "thumbnail": "meu-yalo.png",
+    "thumbnail": "meu-yalo.jpg",
     "roles": ["UX and UI Designer"],
     "technologies": [{ "label": "Figma", "icon": "figma.png" },{ "label": "Proto.pie", "icon": "protopie.png" }],
     "images": 10
