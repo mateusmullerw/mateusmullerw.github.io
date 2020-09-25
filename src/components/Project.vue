@@ -54,7 +54,7 @@ export default Vue.extend({
       const height = project.getBoundingClientRect().height
       const spacing =
         8 * parseFloat(getComputedStyle(document.documentElement).fontSize)
-      const limitTop = 0
+      const limitTop = 80
       const limitBottom = limitTop + spacing + height
       const projectTop = project.getBoundingClientRect().top
 

@@ -2,6 +2,7 @@
   <div class="contact-form">
     <transition name="fade" :mode="'out-in'">
       <form
+        key="form"
         v-if="messageStatus === 0"
         @submit.prevent="submitForm"
         novalidate
@@ -37,29 +38,36 @@
           v-model="message.value"
           @onblur="validateMessage"
         />
-        <button class="button" type="submit">
-          Send
-        </button>
+        <Button :key="'send'" :type="'submit'" :label="'Send'"> </Button>
       </form>
-      <div class="contact-form__loading" v-else-if="messageStatus === 1">
+      <div
+        key="loading"
+        class="contact-form__loading"
+        v-else-if="messageStatus === 1"
+      >
         <LoadingIcon class="rotate" />
       </div>
-      <div class="contact-form__success" v-else-if="messageStatus === 2">
+      <div
+        key="success"
+        class="contact-form__success"
+        v-else-if="messageStatus === 2"
+      >
         <SentIcon class="icon" />
         <h1 class="contact-form__success__message">Thank you!</h1>
         <p>I will contact you as soon as possible.</p>
       </div>
-      <div class="contact-form__error" v-else>
+      <div key="error" class="contact-form__error" v-else>
         <FailedSendIcon class="icon" />
         <p class="contact-form__error__message">
           Ops, the message could not be sent.
         </p>
-        <button
-          class="button contact-form__error__button"
-          @click="messageStatus = 0"
+        <Button
+          class="contact-form__error__button"
+          :key="'tryagain'"
+          :handleClick="() => (messageStatus = 0)"
+          :label="'try again'"
         >
-          try again
-        </button>
+        </Button>
       </div>
     </transition>
   </div>
@@ -68,6 +76,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Input from '@/components/Input.vue'
+import Button from '@/components/Button.vue'
 import SentIcon from '@/components/icons/SentIcon.vue'
 import LoadingIcon from '@/components/icons/LoadingIcon.vue'
 import FailedSendIcon from '@/components/icons/FailedSendIcon.vue'
@@ -76,6 +85,7 @@ export default Vue.extend({
   name: 'ContactForm',
   components: {
     Input,
+    Button,
     SentIcon,
     LoadingIcon,
     FailedSendIcon
@@ -161,28 +171,6 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 @media screen and (min-width: 0rem) {
-  .button {
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    align-self: flex-end;
-    text-transform: uppercase;
-    color: $background;
-    -webkit-text-stroke: 1px $text-high;
-    font-size: 3rem;
-    font-weight: 900;
-    padding: 0.5rem;
-    transition: all 0.4s cubic-bezier(0.165, 0.85, 0.45, 1);
-    &:hover {
-      color: $text-high;
-    }
-    &:focus {
-      outline: 1px solid $outline;
-    }
-    &:disabled {
-      -webkit-text-stroke: 1px $text-low;
-    }
-  }
   .contact-form {
     width: 100%;
     height: 30rem;
