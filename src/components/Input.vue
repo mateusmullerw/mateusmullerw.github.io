@@ -36,7 +36,8 @@
       ref="input"
       class="input input--textarea"
       :class="{
-        'input--small-font': smallFont
+        'input--small-font': smallFont,
+        'input--error': hasError
       }"
       :type="type"
       :name="name"

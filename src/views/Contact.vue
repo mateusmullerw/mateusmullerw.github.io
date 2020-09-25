@@ -73,7 +73,7 @@ export default Vue.extend({
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
       .contact__paragraph {
         margin-bottom: 2rem;
       }

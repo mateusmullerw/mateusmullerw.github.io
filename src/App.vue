@@ -30,10 +30,10 @@ export default Vue.extend({
   },
   watch: {
     $route(to, from) {
-      if (to.path === '/' || from.path === '/') {
-        this.transitionName = 'fade'
-      } else {
+      if (to.path.includes('/project') && from.path.includes('/project')) {
         this.transitionName = 'slideup'
+      } else {
+        this.transitionName = 'fade'
       }
     }
   }

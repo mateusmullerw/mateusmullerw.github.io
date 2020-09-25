@@ -37,7 +37,9 @@
           v-model="message.value"
           @onblur="validateMessage"
         />
-        <button class="button" type="submit">Send</button>
+        <button class="button" type="submit">
+          Send
+        </button>
       </form>
       <div class="contact-form__loading" v-else-if="messageStatus === 1">
         <LoadingIcon class="rotate" />
@@ -85,7 +87,6 @@ export default Vue.extend({
       email: { value: '', error: '', touched: false },
       message: { value: '', error: '', touched: false },
       endpoint: 'https://formspree.io/xvovodwa',
-      validEmail: false,
       reg: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
     }
   },
@@ -170,12 +171,16 @@ export default Vue.extend({
     -webkit-text-stroke: 1px $text-high;
     font-size: 3rem;
     font-weight: 900;
+    padding: 0.5rem;
     transition: all 0.4s cubic-bezier(0.165, 0.85, 0.45, 1);
     &:hover {
       color: $text-high;
     }
     &:focus {
       outline: 1px solid $outline;
+    }
+    &:disabled {
+      -webkit-text-stroke: 1px $text-low;
     }
   }
   .contact-form {

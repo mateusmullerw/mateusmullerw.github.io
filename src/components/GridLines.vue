@@ -67,9 +67,6 @@ export default Vue.extend({
 }
 @media screen and (min-width: $break-medium-large) {
   .line {
-    &--1 {
-      display: block;
-    }
     &--2 {
       display: block;
     }
@@ -77,12 +74,6 @@ export default Vue.extend({
 }
 @media screen and (min-width: $break-large) {
   .line {
-    &--1 {
-      display: block;
-    }
-    &--2 {
-      display: block;
-    }
     &--3 {
       display: block;
     }

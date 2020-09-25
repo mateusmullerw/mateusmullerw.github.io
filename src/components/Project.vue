@@ -143,10 +143,12 @@ export default Vue.extend({
 @media screen and (min-width: $break-medium) {
   .project {
     flex-direction: row;
+    &:hover .project__title {
+      transform: scale(1.1) translate(1rem);
+    }
     &__title {
       width: 50%;
       max-width: 50%;
-
       &__h1 {
         -webkit-text-stroke: 1px $text-high;
         color: transparent;

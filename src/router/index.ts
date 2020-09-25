@@ -6,6 +6,7 @@ Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   { path: '*', redirect: '/' },
+  { path: '/project/*', redirect: '/' },
   {
     meta: {
       title: 'Mateus Müller'
