@@ -142,7 +142,7 @@ export default Vue.extend({
       this.hoveringHome = false
     },
     enterContact() {
-      this.hoveringContact = !this.hoveringContact
+      this.hoveringContact = true
     },
     leaveContact() {
       this.hoveringContact = false
@@ -150,6 +150,7 @@ export default Vue.extend({
     animHome() {
       if (!this.startAnimHome) {
         this.startAnimHome = true
+        this.hoveringContact = false
         setTimeout(() => (this.startAnimHome = false), 832)
         this.$router.push({ name: 'Home' })
       }
@@ -157,6 +158,7 @@ export default Vue.extend({
     animContact() {
       if (!this.startAnimContact) {
         this.startAnimContact = true
+        this.hoveringHome = false
         setTimeout(() => (this.startAnimContact = false), 800)
         this.$router.push({ name: 'Contact' })
       }
