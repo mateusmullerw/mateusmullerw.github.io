@@ -51,12 +51,12 @@
       alt=""
     />
     <div class="next-project">
-      <h3>Next</h3>
       <router-link
         :to="{ name: 'ProjectDetails', params: { slug: nextProject.slug } }"
         class="next-project__link"
         v-on:click="goToNext"
       >
+        <h3 v-on:click="goToNext">Next</h3>
         <h1 class="project-details__title" v-on:click="goToNext" ref="next">
           {{ nextProject.title[0] }} <br />{{ nextProject.title[1] }}
         </h1>

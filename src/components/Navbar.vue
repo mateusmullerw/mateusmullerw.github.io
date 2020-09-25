@@ -17,9 +17,8 @@
         <Navlink
           :key="'Contact'"
           :label="'Contact'"
-          :href="'mailto: mateusmullerw@gmail.com'"
+          :href="'Contact'"
           :gridArea="'link4'"
-          :isLink="true"
         />
       </div>
     </Container>

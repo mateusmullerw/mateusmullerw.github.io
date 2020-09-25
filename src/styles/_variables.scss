@@ -1,5 +1,6 @@
+$acent: #DF8D26;
 $soft-background: #ededed;
-$line: rgba(0, 0, 0, 0.3);
+$line: rgba(0, 0, 0, 1);
 $background: #1d1d1d;
 $navbar: #1d1d1d;
 $text-high: #ffffff;
@@ -7,7 +8,9 @@ $text-medium: rgba(256, 256, 256, 0.7);
 $text-low: rgba(256, 256, 256, 0.2);
 $scrollbar-color: rgba(256, 256, 256, 0.3);
 $page-margin: 3%;
-
+$error: rgba(256, 10, 10, 0.6);
+$success: rgba(62, 228, 168, 0.7);
+$outline:  rgba(24, 160, 251, 1);
 $break-small: 460px;
 $break-medium: 690px;
 $break-medium-large: 900px;

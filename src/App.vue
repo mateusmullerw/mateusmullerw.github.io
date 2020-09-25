@@ -90,6 +90,12 @@ export default Vue.extend({
     clip-path: polygon(0% 0%, 100% 00%, 100% 00%, 0 0%);
   }
 }
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 
 .fade-enter,
 .fade-leave-to {

@@ -15,10 +15,15 @@ const routes: Array<RouteConfig> = [
     component: Home
   },
   {
-    path: '/:slug',
+    path: '/project/:slug',
     name: 'ProjectDetails',
     props: true,
     component: () => import('../views/ProjectDetails.vue')
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: () => import('../views/Contact.vue')
   }
 ]
 
