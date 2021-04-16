@@ -1,0 +1,16 @@
+
+  {
+    "slug": "angularis-tech",
+    "title": ["Angularis Tech"],
+    "about": [
+      "Angularis Tech is an web development companny based in Florianópolis.",
+      ""
+    ],
+    "thumbnail": "angularis.jpg",
+    "roles": ["Front-end developer"],
+    "technologies": [
+      { "label": "Figma", "icon": "figma.png" },
+      { "label": "React", "icon": "react.png" }
+    ],
+    "images": 1
+  },

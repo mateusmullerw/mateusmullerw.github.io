@@ -22,7 +22,10 @@
     ],
     "thumbnail": "nowee.jpg",
     "roles": ["UX and UI Designer", "Front-end developer"],
-    "technologies": [{ "label": "Figma", "icon": "figma.png" },{ "label": "React", "icon": "react.png" }],
+    "technologies": [
+      { "label": "Figma", "icon": "figma.png" },
+      { "label": "React", "icon": "react.png" }
+    ],
     "link": "nowee.com.br",
     "images": 8
   },
@@ -36,7 +39,10 @@
     ],
     "thumbnail": "findes.jpg",
     "roles": ["UX and UI Designer", "Front-end developer"],
-    "technologies": [{ "label": "Figma", "icon": "figma.png" },{ "label": "React", "icon": "react.png" }],
+    "technologies": [
+      { "label": "Figma", "icon": "figma.png" },
+      { "label": "React", "icon": "react.png" }
+    ],
     "images": 7
   },
   {
@@ -62,7 +68,10 @@
     ],
     "thumbnail": "meu-yalo.jpg",
     "roles": ["UX and UI Designer"],
-    "technologies": [{ "label": "Figma", "icon": "figma.png" },{ "label": "Proto.pie", "icon": "protopie.png" }],
+    "technologies": [
+      { "label": "Figma", "icon": "figma.png" },
+      { "label": "Proto.pie", "icon": "protopie.png" }
+    ],
     "images": 10
   }
 ]
